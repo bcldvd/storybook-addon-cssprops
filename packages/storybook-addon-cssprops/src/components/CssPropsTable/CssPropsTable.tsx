@@ -17,12 +17,14 @@ import {
 
 export interface CssPropsTableRowProps {
   customProperties: CssPropTypes;
+  defaultCssProps: CssPropTypes;
   presetColors?: string[];
   inAddonPanel?: boolean;
 }
 
 export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
   customProperties = {},
+  defaultCssProps= {},
   presetColors,
   inAddonPanel,
 }) => {
@@ -33,7 +35,7 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
   const handleResetProps = () => {
     const customPropertyKeys = Object.keys(customProperties);
     resetStorage(customPropertyKeys);
-    setMergedCustomProperties(customProperties);
+    setMergedCustomProperties(defaultCssProps);
   };
 
   const handleUpdateStorage = (args: CssProps) => {
