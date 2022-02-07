@@ -34,6 +34,8 @@ export const CssPropsTable: React.FC<CssPropsTableRowProps> = ({
     const customPropertyKeys = Object.keys(customProperties);
     resetStorage(customPropertyKeys);
     setMergedCustomProperties(customProperties);
+    // TODO: Remove this hack
+    window.location.reload();
   };
 
   const handleUpdateStorage = (args: CssProps) => {
