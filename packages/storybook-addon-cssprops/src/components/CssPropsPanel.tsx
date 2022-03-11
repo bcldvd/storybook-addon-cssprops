@@ -12,6 +12,7 @@ export const CssPropsPanel: React.FC = () => {
   const cssprops = useParameter<CssPropsParametersType>(PARAM_KEY, {});
 
   const { presetColors, disable, ...customProperties } = cssprops;
+  const defaultCssProps = JSON.parse(JSON.stringify(customProperties));
 
   const hasCustomProperties =
     Object.values(customProperties)
@@ -23,6 +24,7 @@ export const CssPropsPanel: React.FC = () => {
     <CssPropsTable
       presetColors={presetColors}
       customProperties={customProperties}
+      defaultCssProps={defaultCssProps}
       inAddonPanel
     />
   );
